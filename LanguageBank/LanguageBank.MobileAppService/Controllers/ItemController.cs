@@ -23,14 +23,14 @@ namespace LanguageBank.Controllers
         }
 
         [HttpGet("{id}")]
-        public Item GetItem(string id)
+        public WordCombination GetItem(string id)
         {
-            Item item = ItemRepository.Get(id);
+            WordCombination item = ItemRepository.Get(id);
             return item;
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody]Item item)
+        public IActionResult Create([FromBody]WordCombination item)
         {
             try
             {
@@ -50,7 +50,7 @@ namespace LanguageBank.Controllers
         }
 
         [HttpPut]
-        public IActionResult Edit([FromBody] Item item)
+        public IActionResult Edit([FromBody] WordCombination item)
         {
             try
             {

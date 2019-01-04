@@ -6,49 +6,49 @@ namespace LanguageBank.Models
 {
     public class ItemRepository : IItemRepository
     {
-        private static ConcurrentDictionary<string, Item> items =
-            new ConcurrentDictionary<string, Item>();
+        private static ConcurrentDictionary<Guid, WordCombination> items =
+            new ConcurrentDictionary<Guid, WordCombination>();
 
         public ItemRepository()
         {
-            Add(new Item { Id = Guid.NewGuid().ToString(), Text = "Item 1", Description = "This is an item description." });
-            Add(new Item { Id = Guid.NewGuid().ToString(), Text = "Item 2", Description = "This is an item description." });
-            Add(new Item { Id = Guid.NewGuid().ToString(), Text = "Item 3", Description = "This is an item description." });
+            Add(new WordCombination { Id = Guid.NewGuid(), Foreign = "Item 1", Native = "This is an item description." });
+            Add(new WordCombination { Id = Guid.NewGuid(), Foreign = "Item 2", Native = "This is an item description." });
+            Add(new WordCombination { Id = Guid.NewGuid(), Foreign = "Item 3", Native = "This is an item description." });
         }
 
-        public Item Get(string id)
+        public WordCombination Get(string id)
         {
-            return items[id];
+            return items[new Guid(id)];
         }
 
-        public IEnumerable<Item> GetAll()
+        public IEnumerable<WordCombination> GetAll()
         {
             return items.Values;
         }
 
-        public void Add(Item item)
+        public void Add(WordCombination item)
         {
-            item.Id = Guid.NewGuid().ToString();
+            item.Id = Guid.NewGuid();
             items[item.Id] = item;
         }
 
-        public Item Find(string id)
+        public WordCombination Find(string id)
         {
-            Item item;
-            items.TryGetValue(id, out item);
+            WordCombination item;
+            items.TryGetValue(new Guid(id), out item);
 
             return item;
         }
 
-        public Item Remove(string id)
+        public WordCombination Remove(string id)
         {
-            Item item;
-            items.TryRemove(id, out item);
+            WordCombination item;
+            items.TryRemove(new Guid(id), out item);
 
             return item;
         }
 
-        public void Update(Item item)
+        public void Update(WordCombination item)
         {
             items[item.Id] = item;
         }

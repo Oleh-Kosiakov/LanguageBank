@@ -2,10 +2,10 @@
 
 namespace LanguageBank.Models
 {
-    public class Item
+    public class WordCombination
     {
-        public string Id { get; set; }
-        public string Text { get; set; }
-        public string Description { get; set; }
+        public Guid Id { get; set; }
+        public string Foreign { get; set; }
+        public string Native { get; set; }
     }
 }

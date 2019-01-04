@@ -5,10 +5,10 @@ namespace LanguageBank.Models
 {
     public interface IItemRepository
     {
-        void Add(Item item);
-        void Update(Item item);
-        Item Remove(string key);
-        Item Get(string id);
-        IEnumerable<Item> GetAll();
+        void Add(WordCombination item);
+        void Update(WordCombination item);
+        WordCombination Remove(string key);
+        WordCombination Get(string id);
+        IEnumerable<WordCombination> GetAll();
     }
 }
