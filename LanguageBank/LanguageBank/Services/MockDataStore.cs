@@ -6,21 +6,21 @@ using LanguageBank.Models;
 
 namespace LanguageBank.Services
 {
-    public class MockDataStore : IDataStore<Item>
+    public class MockDataStore : IDataStore<WordCombination>
     {
-        List<Item> items;
+        List<WordCombination> items;
 
         public MockDataStore()
         {
-            items = new List<Item>();
-            var mockItems = new List<Item>
+            items = new List<WordCombination>();
+            var mockItems = new List<WordCombination>
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." },
+                new WordCombination { Id = Guid.NewGuid(), Foreign = "First item", Native = "This is an item description." },
+                new WordCombination { Id = Guid.NewGuid(), Foreign = "Second item", Native = "This is an item description." },
+                new WordCombination { Id = Guid.NewGuid(), Foreign = "Third item", Native = "This is an item description." },
+                new WordCombination { Id = Guid.NewGuid(), Foreign = "Fourth item", Native = "This is an item description." },
+                new WordCombination { Id = Guid.NewGuid(), Foreign = "Fifth item", Native = "This is an item description." },
+                new WordCombination { Id = Guid.NewGuid(), Foreign = "Sixth item", Native = "This is an item description." },
             };
 
             foreach (var item in mockItems)
@@ -29,36 +29,36 @@ namespace LanguageBank.Services
             }
         }
 
-        public async Task<bool> AddItemAsync(Item item)
+        public async Task<bool> AddItemAsync(WordCombination item)
         {
             items.Add(item);
 
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> UpdateItemAsync(Item item)
+        public async Task<bool> UpdateItemAsync(WordCombination item)
         {
-            var oldItem = items.Where((Item arg) => arg.Id == item.Id).FirstOrDefault();
+            var oldItem = items.Where((WordCombination arg) => arg.Id == item.Id).FirstOrDefault();
             items.Remove(oldItem);
             items.Add(item);
 
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> DeleteItemAsync(string id)
+        public async Task<bool> DeleteItemAsync(Guid id)
         {
-            var oldItem = items.Where((Item arg) => arg.Id == id).FirstOrDefault();
+            var oldItem = items.Where((WordCombination arg) => arg.Id == id).FirstOrDefault();
             items.Remove(oldItem);
 
             return await Task.FromResult(true);
         }
 
-        public async Task<Item> GetItemAsync(string id)
+        public async Task<WordCombination> GetItemAsync(Guid id)
         {
             return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
         }
 
-        public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<WordCombination>> GetItemsAsync(bool forceRefresh = false)
         {
             return await Task.FromResult(items);
         }

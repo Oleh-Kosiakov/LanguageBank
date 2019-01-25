@@ -24,11 +24,7 @@ namespace LanguageBank.Views
         {
             InitializeComponent();
 
-            var item = new Item
-            {
-                Text = "Item 1",
-                Description = "This is an item description."
-            };
+            var item = new WordCombination();
 
             viewModel = new ItemDetailViewModel(item);
             BindingContext = viewModel;

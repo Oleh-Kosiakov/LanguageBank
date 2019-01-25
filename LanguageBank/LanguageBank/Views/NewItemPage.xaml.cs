@@ -11,17 +11,13 @@ namespace LanguageBank.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewItemPage : ContentPage
     {
-        public Item Item { get; set; }
+        public WordCombination Item { get; set; }
 
         public NewItemPage()
         {
             InitializeComponent();
 
-            Item = new Item
-            {
-                Text = "Item name",
-                Description = "This is an item description."
-            };
+            Item = new WordCombination();
 
             BindingContext = this;
         }

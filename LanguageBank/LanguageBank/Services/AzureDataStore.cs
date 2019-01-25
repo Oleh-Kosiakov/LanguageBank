@@ -8,42 +8,42 @@ using LanguageBank.Models;
 
 namespace LanguageBank.Services
 {
-    public class AzureDataStore : IDataStore<Item>
+    public class AzureDataStore : IDataStore<WordCombination>
     {
         HttpClient client;
-        IEnumerable<Item> items;
+        IEnumerable<WordCombination> items;
 
         public AzureDataStore()
         {
             client = new HttpClient();
             client.BaseAddress = new Uri($"{App.AzureBackendUrl}/");
 
-            items = new List<Item>();
+            items = new List<WordCombination>();
         }
 
-        public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<WordCombination>> GetItemsAsync(bool forceRefresh = false)
         {
             if (forceRefresh)
             {
                 var json = await client.GetStringAsync($"api/item");
-                items = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<Item>>(json));
+                items = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<WordCombination>>(json));
             }
 
             return items;
         }
 
-        public async Task<Item> GetItemAsync(string id)
+        public async Task<WordCombination> GetItemAsync(Guid id)
         {
-            if (id != null)
+            if (id != default(Guid))
             {
                 var json = await client.GetStringAsync($"api/item/{id}");
-                return await Task.Run(() => JsonConvert.DeserializeObject<Item>(json));
+                return await Task.Run(() => JsonConvert.DeserializeObject<WordCombination>(json));
             }
 
             return null;
         }
 
-        public async Task<bool> AddItemAsync(Item item)
+        public async Task<bool> AddItemAsync(WordCombination item)
         {
             if (item == null)
                 return false;
@@ -55,10 +55,12 @@ namespace LanguageBank.Services
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<bool> UpdateItemAsync(Item item)
+        public async Task<bool> UpdateItemAsync(WordCombination item)
         {
-            if (item == null || item.Id == null)
+            if (item == null || item.Id == default(Guid))
+            {
                 return false;
+            }
 
             var serializedItem = JsonConvert.SerializeObject(item);
             var buffer = Encoding.UTF8.GetBytes(serializedItem);
@@ -69,10 +71,12 @@ namespace LanguageBank.Services
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<bool> DeleteItemAsync(string id)
+        public async Task<bool> DeleteItemAsync(Guid id)
         {
-            if (string.IsNullOrEmpty(id))
+            if (id == default(Guid))
+            {
                 return false;
+            }
 
             var response = await client.DeleteAsync($"api/item/{id}");
 

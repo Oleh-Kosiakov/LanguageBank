@@ -1,15 +1,13 @@
-﻿using System;
-
-using LanguageBank.Models;
+﻿using LanguageBank.Models;
 
 namespace LanguageBank.ViewModels
 {
     public class ItemDetailViewModel : BaseViewModel
     {
-        public Item Item { get; set; }
-        public ItemDetailViewModel(Item item = null)
+        public WordCombination Item { get; set; }
+        public ItemDetailViewModel(WordCombination item = null)
         {
-            Title = item?.Text;
+            Title = item?.Foreign;
             Item = item;
         }
     }
