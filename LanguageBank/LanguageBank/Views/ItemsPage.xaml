@@ -15,9 +15,10 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Padding="10">
-                                <Label Text="{Binding Foreign}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
-                                <Label Text="{Binding Native}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <Label Text="{Binding Foreign}" MinimumWidthRequest="80" TextColor="Olive" HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap" VerticalOptions="Center" Style="{DynamicResource ListItemTextStyle}" FontSize="14" />
+                                <Image Source="two_sided_arrow" HeightRequest="10" WidthRequest="20" VerticalOptions="Center"/>
+                                <Label Text="{Binding Native}" MinimumWidthRequest="80" TextColor="#2196F3" HorizontalTextAlignment="End" HorizontalOptions="EndAndExpand" LineBreakMode="WordWrap" VerticalOptions="Center" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="14" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

@@ -15,9 +15,9 @@ namespace LanguageBank.Services
             items = new List<WordCombination>();
             var mockItems = new List<WordCombination>
             {
-                new WordCombination { Id = Guid.NewGuid(), Foreign = "First item", Native = "This is an item description." },
-                new WordCombination { Id = Guid.NewGuid(), Foreign = "Second item", Native = "This is an item description." },
-                new WordCombination { Id = Guid.NewGuid(), Foreign = "Third item", Native = "This is an item description." },
+                new WordCombination { Id = Guid.NewGuid(), Foreign = "First item First item First item First item First item First item First item", Native = "This is an item description description description description description description description." },
+                new WordCombination { Id = Guid.NewGuid(), Foreign = "Second item Second item Second item Second item Second item Second item", Native = "This is an item description." },
+                new WordCombination { Id = Guid.NewGuid(), Foreign = "Third item", Native = "This is an item description. This is an item description. This is an item description. This is an item description. This is an item description." },
                 new WordCombination { Id = Guid.NewGuid(), Foreign = "Fourth item", Native = "This is an item description." },
                 new WordCombination { Id = Guid.NewGuid(), Foreign = "Fifth item", Native = "This is an item description." },
                 new WordCombination { Id = Guid.NewGuid(), Foreign = "Sixth item", Native = "This is an item description." },

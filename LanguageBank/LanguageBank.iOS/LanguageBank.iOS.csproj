@@ -124,6 +124,9 @@
     <BundleResource Include="Resources\xamarin_logo%402x.png" />
     <BundleResource Include="Resources\xamarin_logo%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\two_sided_arrow.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\two_sided_arrow.imageset\TwoSidedArrow.jpeg" />
+    <ImageAsset Include="Assets.xcassets\two_sided_arrow.imageset\two_sided_arrow.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -142,5 +145,8 @@
       <Project>{4BDE4E34-E208-4C69-B30D-AC2D107B1563}</Project>
       <Name>LanguageBank</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\two_sided_arrow.imageset\" />
   </ItemGroup>
 </Project>
