@@ -17,7 +17,7 @@ namespace LanguageBank.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = "Vocabulary";
             Items = new ObservableCollection<WordCombination>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 

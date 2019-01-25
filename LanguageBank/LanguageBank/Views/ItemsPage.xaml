@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="LanguageBank.Views.ItemsPage" Title="{Binding Title}" x:Name="BrowseItemsPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="LanguageBank.Views.ItemsPage" 
+             xmlns:local="using:LanguageBank.Controls"
+             Title="{Binding Title}" x:Name="BrowseItemsPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked">
             <ToolbarItem.Icon>
@@ -14,13 +18,13 @@
             <ListView x:Name="ItemsListView" ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
+                        <local:ExtendedItemCell>
                             <StackLayout Padding="10" Orientation="Horizontal">
                                 <Label Text="{Binding Foreign}" MinimumWidthRequest="80" TextColor="Olive" LineBreakMode="WordWrap" VerticalOptions="Center" Style="{DynamicResource ListItemTextStyle}" FontSize="14" />
                                 <Image Source="two_sided_arrow" HeightRequest="10" WidthRequest="20" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
                                 <Label Text="{Binding Native}" MinimumWidthRequest="80" TextColor="#2196F3" HorizontalTextAlignment="End" LineBreakMode="WordWrap" VerticalOptions="Center" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="14" />
                             </StackLayout>
-                        </ViewCell>
+                        </local:ExtendedItemCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

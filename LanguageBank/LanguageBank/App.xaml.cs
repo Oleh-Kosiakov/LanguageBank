@@ -9,6 +9,8 @@ namespace LanguageBank
 {
     public partial class App : Application
     {
+        public static string MultitranUriTemplate = "https://www.multitran.ru/c/m.exe?&s={0}";
+
         //TODO: Replace with *.azurewebsites.net url after deploying backend to Azure
         public static string AzureBackendUrl = "http://localhost:5000";
         public static bool UseMockDataStore = true;

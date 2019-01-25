@@ -70,6 +70,7 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Renderers\ExtendedItemCellIosRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -114,19 +115,16 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <BundleResource Include="Resources\tab_about.png" />
-    <BundleResource Include="Resources\tab_about%402x.png" />
-    <BundleResource Include="Resources\tab_about%403x.png" />
-    <BundleResource Include="Resources\tab_feed.png" />
-    <BundleResource Include="Resources\tab_feed%402x.png" />
-    <BundleResource Include="Resources\tab_feed%403x.png" />
-    <BundleResource Include="Resources\xamarin_logo.png" />
-    <BundleResource Include="Resources\xamarin_logo%402x.png" />
-    <BundleResource Include="Resources\xamarin_logo%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <ImageAsset Include="Assets.xcassets\two_sided_arrow.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\two_sided_arrow.imageset\TwoSidedArrow.jpeg" />
     <ImageAsset Include="Assets.xcassets\two_sided_arrow.imageset\two_sided_arrow.jpeg" />
+    <ImageAsset Include="Assets.xcassets\tab_add.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\tab_feed.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\tab_feed.imageset\tab_feed.png" />
+    <ImageAsset Include="Assets.xcassets\tab_feed.imageset\tab_feed%402x.png" />
+    <ImageAsset Include="Assets.xcassets\tab_feed.imageset\tab_feed%403x.png" />
+    <ImageAsset Include="Assets.xcassets\tab_add.imageset\add-circle-blue-512-3.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -148,5 +146,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\two_sided_arrow.imageset\" />
+    <Folder Include="Renderers\" />
+    <Folder Include="Assets.xcassets\tab_about.imageset\" />
+    <Folder Include="Assets.xcassets\tab_add.imageset\" />
+    <Folder Include="Assets.xcassets\tab_feed.imageset\" />
   </ItemGroup>
 </Project>

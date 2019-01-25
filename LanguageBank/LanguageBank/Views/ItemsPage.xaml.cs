@@ -31,10 +31,12 @@ namespace LanguageBank.Views
             if (item == null)
                 return;
 
-            await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
+            //await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
 
             // Manually deselect item.
             ItemsListView.SelectedItem = null;
+
+            Device.OpenUri(new Uri(string.Format(App.MultitranUriTemplate, item.Foreign)));
         }
 
         async void AddItem_Clicked(object sender, EventArgs e)
