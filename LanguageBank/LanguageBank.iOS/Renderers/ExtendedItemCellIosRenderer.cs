@@ -14,7 +14,7 @@ namespace LanguageBank.iOS.Renderers
             var xamarinFormsCell = item as ExtendedItemNativeCell;
 
             var baseCell = base.GetCell(item, reusableCell, tv);
-            baseCell.AddGestureRecognizer(new UILongPressGestureRecognizer(() => { xamarinFormsCell.OnLongPressed(); }));
+            baseCell.ContentView.AddGestureRecognizer(new UILongPressGestureRecognizer(() => { xamarinFormsCell.OnLongPressed(); }));
 
             return baseCell;
         }
